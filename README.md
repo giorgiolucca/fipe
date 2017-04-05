@@ -12,7 +12,7 @@ SDK não oficial para a API da FIPE (http://fipeapi.appspot.com/)
 
 ### Marcas
 
-Buscar todas as marcas de carro disponíveis
+##### Buscar todas as marcas de carro disponíveis
 
 ```sh
     var fipeSdk = require('fipe').sdk;
@@ -24,7 +24,7 @@ Buscar todas as marcas de carro disponíveis
          });     
 ```
 
-Buscar todas as marcas de caminhões disponíveis
+##### Buscar todas as marcas de caminhões disponíveis
 
 ```sh
     var fipeSdk = require('fipe').sdk;
@@ -36,7 +36,7 @@ Buscar todas as marcas de caminhões disponíveis
         });
 ```
 
-Buscar todas as marcas de motocicletas disponíveis
+##### Buscar todas as marcas de motocicletas disponíveis
 
 ```sh
     var fipeSdk = require('fipe').sdk;
@@ -47,7 +47,7 @@ Buscar todas as marcas de motocicletas disponíveis
         });
 ```
 
-Buscar uma marca específica de carro
+##### Buscar uma marca específica de carro
 
 ```sh
     var fipeSdk = require('fipe').sdk;
@@ -57,7 +57,7 @@ Buscar uma marca específica de carro
             console.log(res); 
         });
 ```
-ou 
+##### ou 
 
 ```sh
     var fipeSdk = require('fipe').sdk;
@@ -71,7 +71,7 @@ ou
 
 ### Veículos
 
-Buscar todos os modelos de uma marca de carro específica
+##### Buscar todos os modelos de uma marca de carro específica
 
 ```sh
     var fipeSdk = require('fipe').sdk;
@@ -83,7 +83,7 @@ Buscar todos os modelos de uma marca de carro específica
         });
 ```
 
-Buscar todas as ocorrências de um modelo de carro 
+##### Buscar todas as ocorrências de um modelo de carro 
 
 ```sh
     var fipeSdk = require('fipe').sdk;
@@ -93,4 +93,28 @@ Buscar todas as ocorrências de um modelo de carro
         .then(function(res) { 
             console.log(res); 
         });    
+```
+
+##### Buscar todos os modelos de uma marca de acordo com o ID informado
+
+```sh
+    var fipeSdk = require('fipe').sdk;
+    
+    fipeSdk.vehicle('car', 'subaru')
+        .getModels('2125')
+        .then(function(res) { 
+            console.log(res); 
+        });
+```
+
+##### Buscar o modelo do ano informado
+
+```sh
+    var fipeSdk = require('fipe').sdk;
+    
+    fipeSdk.vehicle('car', 'subaru')
+        .getYearModel('2125', '2004-2')
+        .then(function(res) { 
+            console.log(res); 
+        });
 ```

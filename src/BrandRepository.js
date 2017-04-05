@@ -25,7 +25,7 @@ BrandRepository.prototype.all = function() {
             throw new Error('Vehicle type is not recognized');
         }
         client.request(sprintf('%s.json', url)).then(function(res) {
-            resolve(JSON.parse(JSON.stringify(res || null )));
+            resolve(JSON.parse(res));
         }).catch(function(err) {
             reject(err);
         })
@@ -44,13 +44,7 @@ BrandRepository.prototype.findBy = function(key, value) {
     return new Promise(function(resolve, reject) {
         client.request(sprintf('%s.json', url))
             .then(function(res) {
-                var result = Search.find(res, key, value);
-
-                if (result.length > 0) {
-                    resolve(result);
-                } else {
-                    reject(new Error('Empty result'));
-                }
+                resolve(Search.find(res, key, value));
             })
             .catch(function(err) {
                 reject(err);
