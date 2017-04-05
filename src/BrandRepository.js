@@ -25,7 +25,7 @@ BrandRepository.prototype.all = function() {
             throw new Error('Vehicle type is not recognized');
         }
         client.request(sprintf('%s.json', url)).then(function(res) {
-            resolve(JSON.parse(res));
+            resolve(JSON.parse(JSON.stringify(res || null )));
         }).catch(function(err) {
             reject(err);
         })

@@ -2,8 +2,8 @@
 
 var Client = require('./Client');
 var Search = require('./Search');
-var Config = require('./Config');
 var sprintf = require('sprintf').sprintf;
+var BrandRepository = require('./BrandRepository');
 
 /**
  * @param {*} vehicle
@@ -12,6 +12,7 @@ var sprintf = require('sprintf').sprintf;
 function VehicleRepository(vehicle) {
     this.vehicle = vehicle;
     this.client = new Client();
+    this.brandRepository = new BrandRepository(vehicle.getBrand());
 }
 
 /**
@@ -20,15 +21,16 @@ function VehicleRepository(vehicle) {
 VehicleRepository.prototype.all = function() {
     var client = this.client,
         baseUrl = this.vehicle.getUrl(),
-        brand = this.vehicle.getBrand();
+        brand = this.vehicle.getBrand(),
+        brandRepository = this.brandRepository;
 
     return new Promise(function(resolve, reject) {
-        brand.findOneBy('name', brand.name)
+        brandRepository.findOneBy('name', brand.name)
             .then(function(brandRes) {
                 resolve(client.request(sprintf('%s/veiculos/%s.json', baseUrl, brandRes.id)));
             })
             .then(function(res) {
-                resolve(res);
+                resolve(JSON.parse(JSON.stringify(res || null )));
             })
         ;
     });
