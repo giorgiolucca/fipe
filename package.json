@@ -4,7 +4,7 @@
   "description": "SDK não oficial para a API da FIPE (http://fipeapi.appspot.com/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha test/unit/**/*.spec.js"
   },
   "keywords": [
     "sdk",
@@ -19,13 +19,23 @@
   "bugs": {
     "url": "https://github.com/giorgiolucca/fipe/issues"
   },
+  "repository": "https://github.com/giorgiolucca/fipe",
   "homepage": "https://github.com/giorgiolucca/fipe",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
   "dependencies": {
     "enum": "^2.4.0",
     "es6-promise": "^4.1.0",
     "js-search": "^1.3.7",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
-    "sprintf": "^0.1.5"
+    "sprintf": "^0.1.5",
+    "superagent": "^3.5.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "nock": "^9.0.11"
   }
 }
