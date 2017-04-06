@@ -1,6 +1,6 @@
 {
   "name": "fipe",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "SDK não oficial para a API da FIPE (http://fipeapi.appspot.com/)",
   "main": "index.js",
   "scripts": {
