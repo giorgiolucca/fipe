@@ -1,3 +1,7 @@
+# FIPE SDK
+
+[![Build Status](https://travis-ci.org/giorgiolucca/fipe.svg?branch=master)](https://travis-ci.org/giorgiolucca/fipe)
+
 SDK não oficial para a API da FIPE (http://fipeapi.appspot.com/)
 
 # Como utilizar
