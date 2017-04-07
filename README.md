@@ -1,6 +1,6 @@
 # FIPE SDK
 
-[![Build Status](https://travis-ci.org/giorgiolucca/fipe.svg?branch=master)](https://travis-ci.org/giorgiolucca/fipe)
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 SDK não oficial para a API da FIPE (http://fipeapi.appspot.com/)
 
@@ -122,3 +122,9 @@ SDK não oficial para a API da FIPE (http://fipeapi.appspot.com/)
             console.log(res); 
         });
 ```
+[npm-image]: https://badge.fury.io/js/fipe.svg
+[npm-url]: https://npmjs.org/package/fipe
+[travis-image]: https://travis-ci.org/giorgiolucca/fipe.svg?branch=master
+[travis-url]: https://travis-ci.org/giorgiolucca/fipe
+[daviddm-image]: https://david-dm.org/giorgiolucca/fipe.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/giorgiolucca/fipe
