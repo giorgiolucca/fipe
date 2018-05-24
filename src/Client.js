@@ -1,11 +1,11 @@
 'use strict';
 
 function Client() {
-    this.client = require('request-promise');
+    this.client = fetch;
 }
 
-Client.prototype.request = function() {
-    return this.client.call(this, Array.prototype.slice.call(arguments).shift());
+Client.prototype.request = function(url) {    
+    return this.client(url).then(function (res) { return res.text(); });
 };
 
 module.exports = Client;

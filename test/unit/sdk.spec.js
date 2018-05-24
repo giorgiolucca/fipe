@@ -33,14 +33,8 @@ describe('fipe (unit)', function() {
             });
 
             it('should return info about "FIAT" car brand', function(done) {
-                sdk.brand('car', 'fiat').then(function(res) {
-                    expect(res).to.deep.equal({
-                        "name":"FIAT",
-                        "fipe_name":"Fiat",
-                        "order":2,
-                        "key":"fiat-21",
-                        "id":21
-                    });
+                sdk.brand('car', 'fiat').then(function(res) {                    
+                    expect(res).to.deep.include({ "key":"fiat-21" });
                     done();
                 });
             });
@@ -54,13 +48,7 @@ describe('fipe (unit)', function() {
 
             it('should return info about "HARLEY DAVIDSON" motorcycle brand', function(done) {
                 sdk.brand('motorcycle', 'harley').then(function(res) {
-                    expect(res).to.deep.equal({
-                        "name":"HARLEY-DAVIDSON",
-                        "fipe_name":"HARLEY-DAVIDSON",
-                        "order": 2,
-                        "key":"harley-davidson-77",
-                        "id": 77
-                    });
+                    expect(res).to.deep.include({ "key":"harley-davidson-77" });
                     done();
                 });
             });
@@ -74,13 +62,7 @@ describe('fipe (unit)', function() {
 
             it('should return info about "SCANIA" motorcycle brand', function(done) {
                 sdk.brand('truck', 'scania').then(function(res) {
-                    expect(res).to.deep.equal({
-                        "name":"SCANIA",
-                        "fipe_name":"SCANIA",
-                        "order": 1,
-                        "key":"scania-114",
-                        "id": 114
-                    });
+                    expect(res).to.deep.include({ "key":"scania-114" });                        
                     done();
                 });
             });
@@ -90,23 +72,11 @@ describe('fipe (unit)', function() {
     describe('vehicle method', function() {
         describe('when call "getYearModel" method passing model ID and year', function() {
             it('should return info about a car from brand "subaru"', function(done) {
-                sdk.vehicle('car', 'subaru').getYearModel('2125', '2004-2').then(function (res) {
-                    expect(res).to.deep.equal({
-                        "referencia": "abril de 2017",
-                        "fipe_codigo": "027039-3",
-                        "name": "Forester 2.0 16v 4x4 Turbo Aut.",
-                        "combustivel": "Gasolina",
-                        "marca": "Subaru",
-                        "ano_modelo": "2004",
-                        "preco": "R$ 26.610,00",
-                        "key": "forester-2004",
-                        "time": 0,
-                        "veiculo": "Forester 2.0 16v 4x4 Turbo Aut.",
-                        "id": "2004"
-                    });
+                sdk.vehicle('car', 'subaru').getYearModel('2125', '2004-2').then(function (res) {                    
+                    expect(res).to.deep.include({ "fipe_codigo": "027039-3" });
                     done();
                 });
             });
         });
-    })
+    });
 });
