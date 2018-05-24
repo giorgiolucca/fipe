@@ -1,11 +1,18 @@
 'use strict';
 
 function Client() {
-    this.client = fetch;
+    this.client = require('axios');
 }
 
 Client.prototype.request = function(url) {    
-    return this.client(url).then(function (res) { return res.text(); });
+    var CircularJSON = require('circular-json'),
+        self = this;
+    
+    return new Promise(function(resolve, reject) {
+        self.client(url).then(function (res) { 
+            resolve(CircularJSON.stringify(res.data)); 
+        });
+    })
 };
 
 module.exports = Client;
